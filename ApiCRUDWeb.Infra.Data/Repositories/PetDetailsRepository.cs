@@ -25,9 +25,9 @@ namespace ApiCRUDWeb.Infra.Data.Repositories
 			return _pet.Details;
 		}
 
-		public async Task<PetDetails> UpdatePetDetails(PetDetails input)
+		public async Task<PetDetails> UpdatePetDetails(PetDetails input, Guid petId)
 		{
-			var petDetailsContext = await _context.PetsDetails.SingleOrDefaultAsync(p => p.PetId == input.PetId);
+			var petDetailsContext = await _context.PetsDetails.SingleOrDefaultAsync(p => p.PetId == petId);
 			
 			if (petDetailsContext == null)
 				throw new InvalidOperationException("Detalhes do pet não exitem na base de dados");

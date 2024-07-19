@@ -63,7 +63,7 @@ namespace ApiCRUDWeb.Controllers
 
 			if(createPet is null)
 				return BadRequest();
-			return StatusCode(StatusCodes.Status201Created);
+			return Created($"Pet/{createPet.PetName}", createPet);
 		}
 
 

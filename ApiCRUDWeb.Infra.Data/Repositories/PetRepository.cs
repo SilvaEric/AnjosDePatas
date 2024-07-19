@@ -77,7 +77,7 @@ namespace ApiCRUDWeb.Infra.Data.Repositories
 			if (petContext is null)
 				throw new InvalidOperationException("Este Pet não exite na base de dados");
 
-			petContext.Update(input.UserId, input.PetName, input.DateOfBirh, input.Breed);
+			petContext.Update(input.PetName, input.DateOfBirh, input.Breed);
 
 			await _context.SaveChangesAsync();
 

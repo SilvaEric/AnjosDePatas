@@ -38,10 +38,10 @@ namespace ApiCRUDWeb.Controllers
 		[ProducesResponseType(StatusCodes.Status200OK)]
 		[ProducesResponseType(StatusCodes.Status204NoContent)]
 		[Authorize]
-		public async Task<IActionResult> UpdateAsync(PetDetailsDTO petDetails)
+		public async Task<IActionResult> UpdateAsync(PetDetailsDTO petDetails, Guid petId)
 		{
 			
-			var query = await _petDetailsService.UpdatePetDetails(petDetails);
+			var query = await _petDetailsService.UpdatePetDetails(petDetails, petId);
 			if(query == null)
 			{
 				return NoContent();

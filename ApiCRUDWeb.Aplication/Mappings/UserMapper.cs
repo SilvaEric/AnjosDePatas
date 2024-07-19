@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ApiCRUDWeb.Aplication.DTOs;
+﻿using ApiCRUDWeb.Aplication.DTOs;
+using ApiCRUDWeb.Aplication.Interfaces;
 using ApiCRUDWeb.Domain.Entities;
 
-namespace ApiCRUDWeb.Aplication.Interfaces
+namespace ApiCRUDWeb.Aplication.Mappings
 {
 	public class UserMapper : IUserMapper
 	{

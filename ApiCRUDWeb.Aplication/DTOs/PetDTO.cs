@@ -9,8 +9,8 @@ namespace ApiCRUDWeb.Aplication.DTOs
 {
 	public class PetDTO
 	{
-		[Required]
-		public Guid UserId { get; set; }
+		
+		public Guid? PetId { get; set; }
 		[Required]
 		[StringLength(200, MinimumLength = 3, ErrorMessage = "O nome dever conter entre 3 a 200 caracteres")]
 		public string PetName { get;  set; }
@@ -19,6 +19,8 @@ namespace ApiCRUDWeb.Aplication.DTOs
 		[Required]
 		[StringLength(100, MinimumLength = 3, ErrorMessage = "O nome dever conter entre 3 a 100 caracteres")]
 		public string Breed { get; set; }
+
+		public PetDetailsDTO? Details { get; set; }
 
 	}
 }

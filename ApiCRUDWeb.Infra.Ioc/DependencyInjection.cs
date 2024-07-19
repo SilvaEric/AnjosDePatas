@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using ApiCRUDWeb.Domain.Configuration;
 using System.Text;
-using ApiCRUDWeb.Domain.Entities;
 using ApiCRUDWeb.Aplication.Services;
 using ApiCRUDWeb.Aplication.Mappings;
 
@@ -19,8 +18,10 @@ namespace ApiCRUDWeb.Infra.Ioc
 		public static IServiceCollection AddInfrastructure(this IServiceCollection services)
 		{
 			services.AddDbContext<AppDbContext>(options =>
-            options.UseNpgsql(Environment.GetEnvironmentVariable("PostgresSql"),
-				b => b.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName))
+            //options.UseNpgsql(Environment.GetEnvironmentVariable("PostgresSql"),
+			options.UseNpgsql("Server=dpg-cqau1mmehbks73df8a30-a.oregon-postgres.render.com;Port=5432;Database=postgreesqlteste;Userid=postgreesqlteste_user;Password=HeWlIHgHB3oDRWHHxbDi8H4BcFs0VDcJ; SSL Mode = Require ;",
+
+                b => b.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName))
 			);
 
 			var key = Encoding.ASCII.GetBytes(Settings.PrivateKey);

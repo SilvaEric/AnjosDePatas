@@ -10,6 +10,10 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["ApiCRUDWeb.csproj", "."]
+COPY ["../ApiCRUDWeb.Aplication/ApiCRUDWeb.Aplication.csproj", "."]
+COPY ["../ApiCRUDWeb.Domain/ApiCRUDWeb.Domain.csproj", "."]
+COPY ["../ApiCRUDWeb.Infra.Data/ApiCRUDWeb.Infra.Data.csproj", "."]
+COPY ["../ApiCRUDWeb.Infra.Ioc/ApiCRUDWeb.Infra.Ioc.csproj", "."]
 RUN dotnet restore "./ApiCRUDWeb.csproj"
 COPY . .
 WORKDIR "/src/."

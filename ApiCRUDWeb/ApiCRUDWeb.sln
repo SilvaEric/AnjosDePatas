@@ -12,6 +12,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiCRUDWeb.Aplication", "..\ApiCRUDWeb.Aplication\ApiCRUDWeb.Aplication.csproj", "{19573319-666C-4C8C-AE83-7693405B292E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens de Solução", "{5B231254-AC93-4199-82F3-2CF1734E228C}"
+	ProjectSection(SolutionItems) = preProject
+		..\Dockerfile = ..\Dockerfile
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiCRUDWeb", "ApiCRUDWeb.csproj", "{3B5E21CE-64A6-42A5-BA71-C70A826EDE26}"
 EndProject

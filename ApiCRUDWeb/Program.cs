@@ -3,6 +3,8 @@ using ApiCRUDWeb.Infra.Ioc;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.AddServiceDefaults();
+
 builder.Services.AddInfrastructureSwagger();
 builder.Services.AddControllers()
 	.AddJsonOptions(options =>
@@ -13,6 +15,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddInfrastructure();
 
 var app = builder.Build();
+
+app.MapDefaultEndpoints();
 
 app.UseRouting();
 app.UseAuthentication();

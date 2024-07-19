@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiCRUDWeb", "ApiCRUDWeb.csproj", "{5A05D0EE-798A-43FF-8CC9-380C33AD5AD0}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiCRUDWeb.Infra.Ioc", "..\ApiCRUDWeb.Infra.Ioc\ApiCRUDWeb.Infra.Ioc.csproj", "{3AA6EC0A-F9BE-41CE-897B-95AF2E4BED31}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiCRUDWeb.Infra.Data", "..\ApiCRUDWeb.Infra.Data\ApiCRUDWeb.Infra.Data.csproj", "{B650FF6B-F8E9-4294-ABA6-F647339F3A06}"
@@ -14,9 +12,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiCRUDWeb.Aplication", "..\ApiCRUDWeb.Aplication\ApiCRUDWeb.Aplication.csproj", "{19573319-666C-4C8C-AE83-7693405B292E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens de Solução", "{5B231254-AC93-4199-82F3-2CF1734E228C}"
-	ProjectSection(SolutionItems) = preProject
-		.dockerignore = .dockerignore
-	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiCRUDWeb", "ApiCRUDWeb.csproj", "{3B5E21CE-64A6-42A5-BA71-C70A826EDE26}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,10 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5A05D0EE-798A-43FF-8CC9-380C33AD5AD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5A05D0EE-798A-43FF-8CC9-380C33AD5AD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5A05D0EE-798A-43FF-8CC9-380C33AD5AD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5A05D0EE-798A-43FF-8CC9-380C33AD5AD0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3AA6EC0A-F9BE-41CE-897B-95AF2E4BED31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3AA6EC0A-F9BE-41CE-897B-95AF2E4BED31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3AA6EC0A-F9BE-41CE-897B-95AF2E4BED31}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -44,6 +37,10 @@ Global
 		{19573319-666C-4C8C-AE83-7693405B292E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19573319-666C-4C8C-AE83-7693405B292E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19573319-666C-4C8C-AE83-7693405B292E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B5E21CE-64A6-42A5-BA71-C70A826EDE26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B5E21CE-64A6-42A5-BA71-C70A826EDE26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B5E21CE-64A6-42A5-BA71-C70A826EDE26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B5E21CE-64A6-42A5-BA71-C70A826EDE26}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

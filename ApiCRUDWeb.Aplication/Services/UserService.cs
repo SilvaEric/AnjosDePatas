@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using ApiCRUDWeb.Aplication.DTOs;
@@ -25,6 +26,12 @@ namespace ApiCRUDWeb.Aplication.Services
 		public async Task<UserDTO> AddUser(UserDTO userDTO)
 		{
 			var user = _mapper.MapToUser(userDTO);
+
+			using var hmac = new HMACSHA512();
+			byte[] passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(userDTO.Password));
+			byte[] passwordSalt = hmac.Key;
+			user.AlteratePassword(passwordSalt, passwordHash);
+
 			var userAdded = await _repository.AddUser(user);
 			return _mapper.MapToUserDTO(userAdded);
 		}

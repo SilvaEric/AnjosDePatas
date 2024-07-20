@@ -39,10 +39,10 @@ namespace ApiCRUDWeb.Aplication.Services
 			return _mapper.MapToPetDTO(pet);
 		}
 
-		public async Task<PetDTO> UpdatePet(PetDTO input)
+		public async Task<PetDTO> UpdatePet(PetDTO input, Guid petId)
 		{
 			var pet = _mapper.MapToPet(input);
-			var petUpdated = await _repository.UpdatePet(pet);
+			var petUpdated = await _repository.UpdatePet(pet, petId);
 			return _mapper.MapToPetDTO(petUpdated);
 		}
 	}

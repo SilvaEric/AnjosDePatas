@@ -18,9 +18,8 @@ namespace ApiCRUDWeb.Infra.Ioc
 		public static IServiceCollection AddInfrastructure(this IServiceCollection services)
 		{
 			services.AddDbContext<AppDbContext>(options =>
-            //options.UseNpgsql(Environment.GetEnvironmentVariable("PostgresSql"),
-			options.UseNpgsql("Server=dpg-cqau1mmehbks73df8a30-a.oregon-postgres.render.com;Port=5432;Database=postgreesqlteste;Userid=postgreesqlteste_user;Password=HeWlIHgHB3oDRWHHxbDi8H4BcFs0VDcJ; SSL Mode = Require ;",
-
+                //options.UseNpgsql(Environment.GetEnvironmentVariable("PostgresSql"),
+                options.UseNpgsql("Server=dpg-cqau1mmehbks73df8a30-a.oregon-postgres.render.com;Port=5432;Database=postgreesqlteste;Userid=postgreesqlteste_user;Password=HeWlIHgHB3oDRWHHxbDi8H4BcFs0VDcJ; SSL Mode = Require ;",
                 b => b.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName))
 			);
 

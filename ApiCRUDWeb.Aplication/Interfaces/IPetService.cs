@@ -14,7 +14,7 @@ namespace ApiCRUDWeb.Aplication.Interfaces
 
 		Task<PetDTO> GetPet(Guid petId);
 
-		Task<PetDTO> UpdatePet(PetDTO input);
+		Task<PetDTO> UpdatePet(PetDTO input, Guid petId);
 
 		Task<PetDTO> AddPet(PetDTO petDTO, Guid tutorId);
 

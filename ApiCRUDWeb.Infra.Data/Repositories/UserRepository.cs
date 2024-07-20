@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using ApiCRUDWeb.Domain.Entities;
@@ -27,18 +28,23 @@ namespace ApiCRUDWeb.Infra.Data.Repositories
 
 		public async Task<User> Login(string email, string password)
 		{
-			try
-			{
-				var _user = await _context.Users
-					.Where(u => u.EmailAdress.ToLower() == email.ToLower() && u.Password.ToLower() == password.ToLower())
+			var _user = await _context.Users
+					.Where(u => u.EmailAdress.ToLower() == email.ToLower())
 					.FirstOrDefaultAsync();
-				return _user;
-			}
 
-			catch
+			if (_user is null)
+				throw new InvalidOperationException("Email não cadastrado");
+
+			using var hmac = new HMACSHA512(_user.PasswordSalt);
+			var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
+			for (int x = 0; x < computedHash.Length; x++)
 			{
-				throw new InvalidOperationException("Erro ao obter usuarios");
-			}
+				if (computedHash[x] != _user.PasswordHash[x])
+                    throw new InvalidOperationException("Senha Incorreta");
+            }
+
+			return _user;
+		
 		}
 
 		public async Task<User> GetUser(Guid id)
@@ -63,7 +69,6 @@ namespace ApiCRUDWeb.Infra.Data.Repositories
 
 			_user.Update(user.UserName,
 			user.EmailAdress,
-			user.Password,
 			user.UserDateOfBirth,
 			user.PhoneNumber,
 			user.Role);

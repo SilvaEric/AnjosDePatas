@@ -12,7 +12,6 @@ namespace ApiCRUDWeb.Aplication.Mappings
 			(
 				userDTO.UserName,
 				userDTO.EmailAdress,
-				userDTO.Password,
 				userDTO.UserDateOfBirth,
 				userDTO.PhoneNumber,
 				userDTO.Role
@@ -25,7 +24,7 @@ namespace ApiCRUDWeb.Aplication.Mappings
 			{
 				UserName = user.UserName,
 				EmailAdress = user.EmailAdress,
-				Password = user.Password,
+				Password = "Oculted",
 				UserDateOfBirth = user.UserDateOfBirth,
 				PhoneNumber = user.PhoneNumber,
 				Role = user.Role

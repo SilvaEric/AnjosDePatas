@@ -70,9 +70,9 @@ namespace ApiCRUDWeb.Controllers
 		[HttpPut("[action]")]
 		[ProducesResponseType(StatusCodes.Status200OK)]
 		[ProducesResponseType(StatusCodes.Status404NotFound)]
-		public async Task<IActionResult> UpdateAsync( PetDTO input)
+		public async Task<IActionResult> UpdateAsync( PetDTO input, Guid petId)
 		{
-			var updatePet = await _petService.UpdatePet(input);
+			var updatePet = await _petService.UpdatePet(input, petId);
 			if (updatePet is null)
 			{
 				return NotFound();

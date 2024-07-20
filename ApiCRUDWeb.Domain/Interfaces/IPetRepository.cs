@@ -13,7 +13,7 @@ namespace ApiCRUDWeb.Domain.Interfaces
 
 		Task<Pet> GetPet(Guid petId);
 
-		Task<Pet> UpdatePet(Pet input);
+		Task<Pet> UpdatePet(Pet input, Guid petId);
 
 		Task<Pet> AddPet(Pet pet, Guid tutorId);
 

@@ -69,9 +69,9 @@ namespace ApiCRUDWeb.Infra.Data.Repositories
 			return _pet;
 		}
 
-		public async Task<Pet> UpdatePet(Pet input)
+		public async Task<Pet> UpdatePet(Pet input, Guid petId)
 		{
-			var petContext = await _context.Pets.Where(p => p.PetId == input.PetId)
+			var petContext = await _context.Pets.Where(p => p.PetId == petId)
 				.SingleOrDefaultAsync();
 
 			if (petContext is null)

@@ -4,8 +4,15 @@ using ApiCRUDWeb.Domain.Entities;
 
 namespace ApiCRUDWeb.Aplication.Mappings
 {
-	public class UserMapper : IUserMapper
+	internal class UserMapper : IUserMapper
 	{
+		private readonly IAdressMapper _mapper;
+
+		public UserMapper(IAdressMapper mapper)
+		{
+			_mapper = mapper;
+		}
+
 		public User MapToUser(UserDTO userDTO)
 		{
 			return new User
@@ -20,6 +27,12 @@ namespace ApiCRUDWeb.Aplication.Mappings
 
 		public UserDTO MapToUserDTO(User user)
 		{
+			AdressDTO? adress = null;
+
+			if (user.Adress is not null)
+				adress = _mapper.MapToAdressDTO(user.Adress);
+
+
 			return new UserDTO
 			{
 				UserName = user.UserName,
@@ -27,7 +40,8 @@ namespace ApiCRUDWeb.Aplication.Mappings
 				Password = "Oculted",
 				UserDateOfBirth = user.UserDateOfBirth,
 				PhoneNumber = user.PhoneNumber,
-				Role = user.Role
+				Role = user.Role,
+				Adress = adress
 			};
 		}
 	}

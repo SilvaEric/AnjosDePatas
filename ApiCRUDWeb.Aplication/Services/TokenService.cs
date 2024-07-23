@@ -1,15 +1,14 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using ApiCRUDWeb.Aplication.DTOs;
+using ApiCRUDWeb.Aplication.Configuration;
 using ApiCRUDWeb.Aplication.Interfaces;
-using ApiCRUDWeb.Domain.Configuration;
 using ApiCRUDWeb.Domain.Entities;
 using Microsoft.IdentityModel.Tokens;
 
 namespace ApiCRUDWeb.Aplication.Services
 {
-	public class TokenService : ITokenService
+	internal class TokenService : ITokenService
 	{
 		public string GenerateToken(User user)
 		{

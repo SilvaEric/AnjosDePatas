@@ -12,7 +12,7 @@ using ApiCRUDWeb.Models;
 
 namespace ApiCRUDWeb.Aplication.Services
 {
-	public class UserService : IUserService
+	internal class UserService : IUserService
 	{
 		private readonly IUserMapper _mapper;
 		private readonly IUserRepository _repository;

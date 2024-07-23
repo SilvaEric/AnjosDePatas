@@ -20,7 +20,7 @@ namespace ApiCRUDWeb.Controllers
 			_petDetailsService = petDetailsService;
 		}
 
-		[HttpPost("[action]/{petId:Guid}")]
+		[HttpPost("[action]")]
 		[ProducesResponseType(StatusCodes.Status201Created)]
 		[ProducesResponseType(StatusCodes.Status400BadRequest)]
 		[Authorize]
@@ -34,7 +34,7 @@ namespace ApiCRUDWeb.Controllers
 			return StatusCode(StatusCodes.Status201Created);
 		}
 
-		[HttpPut("[action]/")]
+		[HttpPut("[action]")]
 		[ProducesResponseType(StatusCodes.Status200OK)]
 		[ProducesResponseType(StatusCodes.Status204NoContent)]
 		[Authorize]

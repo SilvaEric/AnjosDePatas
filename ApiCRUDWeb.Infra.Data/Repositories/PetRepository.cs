@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ApiCRUDWeb.Infra.Data.Repositories
 {
-	public class PetRepository : IPetRepository
+	internal class PetRepository : IPetRepository
 	{
 		private readonly AppDbContext _context;
 		public PetRepository(AppDbContext context)

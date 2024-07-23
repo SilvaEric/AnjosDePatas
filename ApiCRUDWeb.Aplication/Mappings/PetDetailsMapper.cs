@@ -4,7 +4,7 @@ using ApiCRUDWeb.Domain.Entities;
 
 namespace ApiCRUDWeb.Aplication.Mappings
 {
-	public class PetDetailsMapper : IPetDetailsMapper
+	internal class PetDetailsMapper : IPetDetailsMapper
 	{
 		public PetDetails MapToPetDetails(PetDetailsDTO petDetailsDTO)
 		{

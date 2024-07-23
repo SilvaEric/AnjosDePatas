@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace ApiCRUDWeb.Aplication.DTOs
 {
@@ -28,5 +22,6 @@ namespace ApiCRUDWeb.Aplication.DTOs
 		public string PhoneNumber { get; set; }
 		[Required(ErrorMessage = "A Função é obrigatoria")]
 		public string Role { get; set; }
+		public AdressDTO? Adress { get; set; }
 	}
 }

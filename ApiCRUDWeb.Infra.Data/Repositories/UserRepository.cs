@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ApiCRUDWeb.Infra.Data.Repositories
 {
-	public class UserRepository : IUserRepository
+	internal class UserRepository : IUserRepository
 	{
 		private readonly AppDbContext _context;
 		public UserRepository(AppDbContext context)

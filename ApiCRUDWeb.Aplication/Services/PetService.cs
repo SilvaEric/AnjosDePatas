@@ -5,7 +5,7 @@ using ApiCRUDWeb.Domain.Interfaces;
 
 namespace ApiCRUDWeb.Aplication.Services
 {
-	public class PetService : IPetService
+	internal class PetService : IPetService
 	{
 		private readonly IPetMapper _mapper;
 		private readonly IPetRepository _repository;

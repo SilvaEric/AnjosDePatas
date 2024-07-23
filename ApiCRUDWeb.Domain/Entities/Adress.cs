@@ -14,16 +14,16 @@ namespace ApiCRUDWeb.Domain.Entities
 		public string Complement { get; private set; }
 		public User User { get; set; }
 
-		public Adress(Guid userId, string country, string state, string city, string neighborhood, string publicPlace, string complement)
+		public Adress(string country, string state, string city, string neighborhood, string publicPlace, string complement)
 		{
-			ValidateDomain(userId, country, state, city, neighborhood, publicPlace, complement);
+			ValidateDomain(country, state, city, neighborhood, publicPlace, complement);
 		}
-		public void Update(Guid userId, string country, string state, string city, string neighborhood, string publicPlace, string complement)
+		public void Update(string country, string state, string city, string neighborhood, string publicPlace, string complement)
 		{
-			ValidateDomain(userId, country, state, city, neighborhood, publicPlace, complement);
+			ValidateDomain(country, state, city, neighborhood, publicPlace, complement);
 		}
 
-		public void ValidateDomain(Guid userId, string country, string state, string city, string neighborhood, string publicPlace, string complement)
+		public void ValidateDomain(string country, string state, string city, string neighborhood, string publicPlace, string complement)
 		{
 			DomainExceptionValidation.When(country.Length > 80, "O nome do pais deve ter no maximo 80 caracteres");
 			DomainExceptionValidation.When(state.Length > 80, "O nome deve ter no maximo 80 caracteres");
@@ -32,7 +32,6 @@ namespace ApiCRUDWeb.Domain.Entities
 			DomainExceptionValidation.When(publicPlace.Length > 100, "O nome deve ter no maximo 100 caracteres");
 			DomainExceptionValidation.When(complement.Length > 50, "O nome deve ter no maximo 50 caracteres");
 
-			UserId = userId;
 			Country = country;
 			State = state;
 			City = city;

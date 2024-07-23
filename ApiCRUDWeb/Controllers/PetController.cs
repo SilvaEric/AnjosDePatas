@@ -23,7 +23,7 @@ namespace ApiCRUDWeb.Controllers
 			_userService = userService;
 		}
 
-		[HttpGet("[action]")]
+		[HttpGet("[action]/{petId}")]
 		[ProducesResponseType(StatusCodes.Status200OK)]
 		[ProducesResponseType(StatusCodes.Status204NoContent)]
 		public async Task<IActionResult> GetAsync(Guid petId)
@@ -63,7 +63,7 @@ namespace ApiCRUDWeb.Controllers
 
 			if(createPet is null)
 				return BadRequest();
-			return Created($"Pet/{createPet.PetName}", createPet);
+			return Created($"Pet/Get/{createPet.PetId}", createPet);
 		}
 
 

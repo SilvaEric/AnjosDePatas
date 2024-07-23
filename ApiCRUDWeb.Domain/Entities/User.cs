@@ -12,9 +12,10 @@ namespace ApiCRUDWeb.Domain.Entities
 		public byte[] PasswordSalt{ get; private set; }
         public byte[] PasswordHash { get; private set; }
         public DateOnly UserDateOfBirth { get; private set; }
-		public Adress? Adress { get; private set; }
+	
 		public string PhoneNumber { get; private set; }
 		public string Role { get; private set; }
+		public Adress? Adress { get; set; }
 		public DateTime? InsertionDate { get; private set; }
 		public List<Pet>? Pets { get; private set; }
 
@@ -35,8 +36,6 @@ namespace ApiCRUDWeb.Domain.Entities
 		public void ValidateDomain(string userName, string emailAdress, DateOnly userDateOfBirth, 
 			string phoneNumber, string role)
 		{
-			
-
 			UserName = userName;
 			EmailAdress = emailAdress;
 			UserDateOfBirth = userDateOfBirth;

@@ -15,13 +15,18 @@ namespace ApiCRUDWeb.Aplication.Mappings
 
         public Pet MapToPet(PetDTO petDTO)
 		{
-			
-			return new Pet
+
+			var pet = new Pet
 				(
 					petDTO.PetName,
 					petDTO.DateOfBirh,
 					petDTO.Breed
 				);
+
+			if (petDTO.Details is not null)
+				pet.Details  = _petDetailsMapper.MapToPetDetails(petDTO.Details);
+
+			return pet;
 		}
 
 		public PetDTO MapToPetDTO(Pet pet)

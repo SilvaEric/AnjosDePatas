@@ -14,8 +14,8 @@ namespace ApiCRUDWeb.Aplication.Mappings
 		}
 
 		public User MapToUser(UserDTO userDTO)
-		{
-			return new User
+		{ 
+			var user = new User
 			(
 				userDTO.UserName,
 				userDTO.EmailAdress,
@@ -23,6 +23,11 @@ namespace ApiCRUDWeb.Aplication.Mappings
 				userDTO.PhoneNumber,
 				userDTO.Role
 			);
+			
+			if (userDTO.Adress is not null)
+				user.Adress = _mapper.MapToAdress(userDTO.Adress);
+
+			return user;
 		}
 
 		public UserDTO MapToUserDTO(User user)

@@ -15,6 +15,7 @@ namespace ApiCRUDWeb.Aplication.Extensions
 			services.AddScoped<IPetService, PetService>();
 			services.AddScoped<IPetDetailsService, PetDetailsService>();
 			services.AddScoped<IUserService, UserService>();
+			services.AddScoped<IAdressService, AdressService>();
 			services.AddTransient<ITokenService, TokenService>();
 
 			var key = Encoding.ASCII.GetBytes(Settings.PrivateKey);

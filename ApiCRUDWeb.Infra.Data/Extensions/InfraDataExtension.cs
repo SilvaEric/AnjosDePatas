@@ -11,6 +11,7 @@ namespace ApiCRUDWeb.Infra.Data.Extensions
 			services.AddScoped<IPetDetailsRepository, PetDetailsRepository>();
 			services.AddScoped<IPetRepository, PetRepository>();
 			services.AddScoped<IUserRepository, UserRepository>();
+			services.AddScoped<IAdressRepository, AdressRepository>();
 
 			return services;
 		}

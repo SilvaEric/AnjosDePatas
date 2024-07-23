@@ -1,12 +1,9 @@
 ﻿using ApiCRUDWeb.Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Authorization;
-using ApiCRUDWeb.Domain.Entities;
 using ApiCRUDWeb.Aplication.Interfaces;
 using ApiCRUDWeb.Aplication.DTOs;
 using ApiCRUDWeb.Models;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ApiCRUDWeb.Controllers
 {
@@ -40,7 +37,7 @@ namespace ApiCRUDWeb.Controllers
 			{
 				return BadRequest();
 			}
-			return Created($"User/{createUser.UserName}", createUser);
+			return Created($"User/Get", createUser);
 		}
 
 		[HttpGet("[action]")]
@@ -49,7 +46,7 @@ namespace ApiCRUDWeb.Controllers
 		[Authorize]
 		public async Task<IActionResult> GetAsync()
 		{
-			var userId = Guid.Parse(User.Identity.Name ?? string.Empty);
+			var userId = Guid.Parse(User.Identity.Name);
 			var getUser = await _userService.GetUser(userId);
 			if(getUser is null)
 			{
@@ -83,11 +80,11 @@ namespace ApiCRUDWeb.Controllers
 		[Authorize]
 		public async Task<IActionResult> Update(UserDTO user)
 		{
-			var userId = Guid.Parse(User.Identity.Name ?? string.Empty);
+			var userId = Guid.Parse(User.Identity.Name);
 			var updateUser = await _userService.UpdateUserAsync(user, userId);
 
 
-			return Created($"User/{updateUser.UserName}", updateUser);
+			return Created($"User/Get", updateUser);
 		}
 	}
 }

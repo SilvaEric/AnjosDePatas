@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using ApiCRUDWeb.Domain.Entities;
 using ApiCRUDWeb.Domain.Interfaces;
 using ApiCRUDWeb.Infra.Data.Context;
@@ -50,7 +46,7 @@ namespace ApiCRUDWeb.Infra.Data.Repositories
 		public async Task<User> GetUser(Guid id)
 		{
 
-			var user = await _context.Users.Include(u => u.Pets)
+			var user = await _context.Users.Include(u => u.Adress)
 				.FirstOrDefaultAsync(u => u.UserId == id);
 
 			if (user is not null)
@@ -75,7 +71,7 @@ namespace ApiCRUDWeb.Infra.Data.Repositories
 
 			await _context.SaveChangesAsync();
 
-			return user;
+			return _user;
 		}
 
 		public async Task<bool> EmailExist(string email)

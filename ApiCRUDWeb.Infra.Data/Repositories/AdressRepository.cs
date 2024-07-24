@@ -21,14 +21,25 @@ namespace ApiCRUDWeb.Infra.Data.Repositories
 
 		public async Task<Adress> AddAdress(Adress adress, Guid userId)
 		{
-			var _user = await _context.Users.Where(u => u.UserId == userId)
-				.FirstOrDefaultAsync();
+			var _user = await _context.Users.Where(u => u.UserId == userId).FirstOrDefaultAsync();
 
 			_user.Adress = adress;
 
 			await _context.SaveChangesAsync();
 
 			return _user.Adress;
+		}
+
+		public async Task<Adress> UpdateAdress(Adress adress, Guid userId)
+		{
+			var _adress = await _context.Adress.Where(a => a.UserId == userId).FirstOrDefaultAsync();
+
+			_adress.Update(adress.Country, adress.State, adress.City, adress.Neighborhood, adress.PublicPlace, adress.Complement);
+
+			await _context.SaveChangesAsync();
+
+			return _adress;
+
 		}
 	}
 }

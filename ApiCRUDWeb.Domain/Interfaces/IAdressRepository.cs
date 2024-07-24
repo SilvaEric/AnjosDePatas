@@ -9,6 +9,8 @@ namespace ApiCRUDWeb.Domain.Interfaces
 {
 	public interface IAdressRepository
 	{
-		Task<Adress> AddAdress(Adress adress, Guid userId); 
+		Task<Adress> AddAdress(Adress adress, Guid userId);
+
+		Task<Adress> UpdateAdress(Adress adress, Guid userId);
 	}
 }

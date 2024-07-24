@@ -19,18 +19,30 @@ namespace ApiCRUDWeb.Controllers
 		}
 
 		[HttpPost("[action]")]
-		
 		public async Task<IActionResult> Register(AdressDTO adressDTO)
 		{
 			var userId = Guid.Parse(User.Identity.Name);
 
 			var adressAdded = await _adressService.AddAdress(adressDTO, userId);
 
-			if (adressAdded is null)
+			if (adressAdded == null)
 				return BadRequest("não foi possivel adicionar o Endereço");
 
 			return Created($"User/Get", adressAdded);
 
+		}
+
+		[HttpPut("[action]")]
+		public async Task<IActionResult> Update(AdressDTO adressDTO)
+		{
+			var userId = Guid.Parse(User.Identity.Name);
+
+			var adressUpdated = await _adressService.UpdateAdress(adressDTO, userId);
+
+			if(adressUpdated == null)
+				return BadRequest("não foi possivel encontrar o Endereço");
+
+			return Created($"User/Get", adressUpdated);
 		}
 	}
 }

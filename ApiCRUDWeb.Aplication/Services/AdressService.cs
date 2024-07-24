@@ -18,8 +18,18 @@ namespace ApiCRUDWeb.Aplication.Services
 		public async Task<AdressDTO> AddAdress(AdressDTO adressDTO, Guid userId)
 		{
 			var adress = _mapper.MapToAdress(adressDTO);
+
 			var adressAdded = await _repository.AddAdress(adress, userId);
+
 			return _mapper.MapToAdressDTO(adressAdded);
+		}
+		public async Task<AdressDTO> UpdateAdress(AdressDTO adressDTO, Guid userId)
+		{
+			var adress = _mapper.MapToAdress(adressDTO);
+
+			var adressUpdated = await _repository.UpdateAdress(adress, userId);
+
+			return _mapper.MapToAdressDTO(adressUpdated);
 		}
 	}
 }

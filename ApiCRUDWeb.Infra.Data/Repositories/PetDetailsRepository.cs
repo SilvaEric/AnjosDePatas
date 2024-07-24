@@ -20,8 +20,11 @@ namespace ApiCRUDWeb.Infra.Data.Repositories
 		public async Task<PetDetails> AddPetDetails(PetDetails petDetails, Guid petId)
 		{
 			var _pet = await _context.Pets.Where(p => p.PetId == petId).FirstOrDefaultAsync();
+			
 			_pet.Details = petDetails;
+
 			await _context.SaveChangesAsync();
+
 			return _pet.Details;
 		}
 
@@ -33,8 +36,7 @@ namespace ApiCRUDWeb.Infra.Data.Repositories
 				throw new InvalidOperationException("Detalhes do pet não exitem na base de dados");
 
 
-			petDetailsContext.Update(input.PredominantColor, input.NonPredominantColor,
-				input.Heigth, input.Fur, input.EyesColor, input.TongueColor);
+			petDetailsContext.Update(input.PredominantColor, input.NonPredominantColor, input.Heigth, input.Fur, input.EyesColor, input.TongueColor);
 
 			await _context.SaveChangesAsync();
 
